@@ -1,0 +1,11 @@
+.parent-panel{
+    display: flex;
+    width: 100vw;
+margin: auto;
+}
+.left-panel{
+    width: 100%;
+}
+.right-panel{
+    width: 100vw;
+}

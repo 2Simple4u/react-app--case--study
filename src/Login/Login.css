@@ -1,0 +1,51 @@
+.main_LoginScreen{
+    background:black;
+    margin: auto;
+    height: 100vh;
+    width: 100vw;
+    align-items: center;
+    display: flex;
+}
+.right_loginSide{
+    width: 390px;
+    padding: 100px;
+    margin: auto;
+    background: #181818;
+    border-radius: 10px;
+}
+.right_loginSide > form{
+display: flex;
+flex-direction: column;
+}
+.right_loginSide > form > h1{
+    margin-bottom: 25px;
+}
+.right_loginSide > form >input{
+    outline-width: 0;
+    height: 40px;
+    margin-bottom: 14px;
+    border-radius: 5px;
+    font-size: 1rem;
+   padding-left: 10px;
+}
+.right_loginSide > form >button{
+    color: #fff;
+    background: #e50914;
+    border: none;
+    font-size: 1rem;
+    padding: 15.8px;
+    margin-top: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.right_loginSide > form > h4{
+    padding-top: 20px;
+
+}
+.right_loginSide{
+    color: gray;
+}
+.right_loginSide:hover{
+cursor: pointer;
+}

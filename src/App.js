@@ -1,23 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import MainScreen from "./component/MainScreen";
+import Navbar from "./component/Navbar.js";
+import "./App.css";
+import Login from "./Login/Login.js";
+import Home from "./screens/Home.js";
+import {BrowserRouter as Router , Routes , Route, Link} from 'react-router-dom';
+import Batch from "./screens/Batch";
+import AddBatches from "./screens/AddBatches"
+import TimeSheet from "./screens/TimeSheet";
+import Dashboard from "./component/Dashboard";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="main-controller">
+      <Router>   
+        <div className="left-panel">
+          <Navbar />
+          {/* <Dashboard /> */}
+        </div>       
+          <div className="right-panel">
+          <Routes>
+          <Route path="/" element={ <Home/>}/>
+          <Route path="/login" element={<Login />}>
+          </Route>
+          <Route path="/mainscreen" element={<MainScreen />}>
+          </Route>
+            <Route path="/batch" element={<Batch />} />
+            <Route path="/addbatch" element={<AddBatches />} />
+          <Route path="/timeSheet" element={<TimeSheet/>}/>
+        </Routes>
+      </div>
+    </Router>
+    
     </div>
   );
 }
