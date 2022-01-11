@@ -12,6 +12,7 @@
   width: 100vw;
   display: flex;
   flex-direction: row;
+  background: #181818;
 }
 
 
@@ -49,4 +50,8 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   -webkit-transition: color, background-color 9999s ease-out !important;
   -webkit-transition-delay: 9999s !important;
+}
+
+.parent_learner{
+  padding-top: 20px;
 }

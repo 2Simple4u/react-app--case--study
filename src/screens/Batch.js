@@ -1,15 +1,11 @@
 import React, {useEffect, useState}from "react";
-import { useNavigate } from "react-router-dom";
 import "./Batch.css"
 import BatchTable from "./BatchTable.js";
 import Dashboard from "../component/Dashboard";
-import {BrowserRouter as Router , Routes , Route, Link} from 'react-router-dom';
 import AddBatches from "./AddBatches.js";
 import CustomPopup from "../component/CustomPopup/Popup.js";
 import axios from "axios";
 import base_url from "../api/Api";
-import { toast, ToastContainer } from "react-toastify";
-import { positions } from "@mui/system";
 
 function Batch ()
 {
@@ -19,19 +15,17 @@ function Batch ()
     }).then(
       (response) => {
         console.log(response);
-        toast.success("Batch has been loaded" ,{ position:"botom-center"})
         setBatchTable(response.data)
       },
       (error) => {
         console.log(error);
-        toast.error("Server Error")
       }
     );
 };
 
 useEffect(() => {
   getAllBatchFromServer()
-});
+},[]);
   
   const [batchTable, setBatchTable] = useState([]);
   const updateBatch = (batchId) => {
@@ -47,7 +41,6 @@ useEffect(() => {
   return (
     <div className="same-component">
       <Dashboard /> 
-      {/* <ToastContainer/> */}
       <div className="main_Batch">
       <div className="batch_topbar">
         <h2>Batches</h2>
@@ -61,6 +54,7 @@ useEffect(() => {
         </div>
         }
       </div>
+      {/* <AssignLearner  employee={employeeTable} /> */}
       <div className="Popup-panel" >
       <CustomPopup
           onClose={popupCloseHandler}
@@ -70,6 +64,7 @@ useEffect(() => {
          <AddBatches />
         </CustomPopup>
       </div>
+      
       </div>
   );
 }

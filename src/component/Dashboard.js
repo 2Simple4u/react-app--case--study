@@ -14,6 +14,10 @@ function Dashboard() {
           <div className="Dashboard_text col-text">
             <h2>Dashboard</h2>
           </div>
+          <div className="Employee_Manage_bar col-dash-1">
+            <AssessmentIcon fontSize="large" />
+              <Link className="Attribute_link" to="/employee">Manage Employee</Link>
+          </div>
           <div className="Batch_Manage_bar col-dash-1">
             <AssessmentIcon fontSize="large" />
               <Link className="Attribute_link" to="/batch">Manage batch</Link>
@@ -22,10 +26,11 @@ function Dashboard() {
             <CalendarTodayIcon fontSize="large" />
             <Link  className="Attribute_link" to="/timesheet">TimeSheet</Link>
           </div>
-          <div className="Report_Manage_bar col-dash-1">
+          {/* <div className="Report_Manage_bar col-dash-1">
             <AnalyticsIcon fontSize="large" />
-            <h2>Report</h2>
-          </div>
+            <Link  className="Attribute_link" to="/report">Report</Link>
+          </div> */}
+          
         </div>
       </div>
   );

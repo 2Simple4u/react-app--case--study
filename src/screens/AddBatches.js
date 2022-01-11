@@ -1,50 +1,51 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "./AddBatches.css";
-import Dashboard from "../component/Dashboard";
 import axios from "axios";
 import base_url from "../api/Api";
 
 function AddBatches() {
   const [batch, setBatch] = useState({});
-  const handleForm = (e) =>{
+  const handleForm = (e) => {
     console.log(batch);
     e.preventDefault();
     postBatchData(batch);
-  }
+  };
 
   const postBatchData = (data) => {
-    axios.post(`${base_url}/addbatch`,data).then(
+    axios.post(`${base_url}/addbatch`, data).then(
       (response) => {
         console.log(response);
         console.log("sucess");
-        setBatch({batchName: "",
-        description: "",
-        endDate: "",
-        endTime: "",
-        startDate: "",
-        startTime: "",
-        trainer: ""});
+        //   setBatch({batchName: "",
+        //   description: "",
+        //   endDate: "",
+        //   endTime: "",
+        //   startDate: "",
+        //   startTime: "",
+        //   trainer: ""});
+        //
       },
-      (error)=>{
+      (error) => {
         console.log(error);
       }
-    )
-  }
+    );
+  };
   return (
     <div className="parent_addBatches">
-      <div className="addBatches_data" >
+      <div className="addBatches_data">
         <div className="col-flex-1">
           <div className="curriculam child-col-flex-1">
             <label htmlFor="curriculum">
               Curriculum <span className="star">*</span>
             </label>
-            <input 
-            type="text" 
-            name="curriculum" 
-            id="curriculum" value={batch.curriculum}
-            onChange={(e) => {
-              setBatch({...batch, curriculum:e.target.value});
-            }} 
+            <input
+              type="text"
+              name="curriculum"
+              id="curriculum"
+              value={batch.curriculum}
+              onChange={(e) => {
+                setBatch({ ...batch, curriculum: e.target.value });
+              }}
             />
           </div>
           {/* <div className="Session child-col-flex-1">
@@ -60,22 +61,29 @@ function AddBatches() {
         <div className="col-flex-1">
           <div className="Name child-col-flex-1">
             <label htmlFor="Name">
-              Name <span className="star">*</span>
+             Batch Name <span className="star">*</span>
             </label>
-            <input type="text" name="batchName" id="name"
-             onChange={(e) => {
-              setBatch({...batch, batchName:e.target.value});
-            }}
+            <input
+              type="text"
+              name="batchName"
+              id="name"
+              onChange={(e) => {
+                setBatch({ ...batch, batchName: e.target.value });
+              }}
             />
           </div>
           <div className="Trainer child-col-flex-1">
             <label htmlFor="Trainer">
               Trainer <span className="star">*</span>
             </label>
-            <input type="text" name="trainer" id="Trainer"
-            onChange={(e) => {
-              setBatch({...batch, trainer:e.target.value});
-            }} />
+            <input
+              type="text"
+              name="trainer"
+              id="Trainer"
+              onChange={(e) => {
+                setBatch({ ...batch, trainer: e.target.value });
+              }}
+            />
           </div>
         </div>
         <div className="col-flex-1">
@@ -84,16 +92,27 @@ function AddBatches() {
               Time <span className="star">*</span>
             </label>
             <div className="col-date">
-              {/* <label htmlFor="startDate" className="child-date">Start</label> */}
-              <input type="time" name="startTime" id="Time" 
-              onChange={(e) => {
-                setBatch({...batch, startTime:e.target.value});
-              }}/>
-              {/* <label htmlFor="endDate" className="child-date">End </label> */}
-              <input type="time" name="endTime" id="Time" 
-              onChange={(e) => {
-                setBatch({...batch, endTime:e.target.value});
-              }}
+              <label htmlFor="startDate" className="child-date">
+                Start Time
+              </label>
+              <input
+                type="time"
+                name="startTime"
+                id="Time"
+                onChange={(e) => {
+                  setBatch({ ...batch, startTime: e.target.value });
+                }}
+              />
+              <label htmlFor="endDate" className="child-date">
+                End Time
+              </label>
+              <input
+                type="time"
+                name="endTime"
+                id="Time"
+                onChange={(e) => {
+                  setBatch({ ...batch, endTime: e.target.value });
+                }}
               />
             </div>
           </div>
@@ -102,18 +121,28 @@ function AddBatches() {
               Date <span className="star">*</span>
             </label>
             <div className="col-date">
-              {/* <label htmlFor="startDate" className="child-date">Start </label> */}
-              <input type="date" name="startDate" id="startDate" 
-              onChange={(e) => {
-                setBatch({...batch, startDate:e.target.value});
-              }}
+              <label htmlFor="startDate" className="child-date">
+                Start Date
+              </label>
+              <input
+                type="date"
+                name="startDate"
+                id="startDate"
+                onChange={(e) => {
+                  setBatch({ ...batch, startDate: e.target.value });
+                }}
               />
-              {/* <label htmlFor="startDate" className="child-date">End</label> */}
-              <input type="date" name="endDate" id="endDate"
-              onChange={(e) => {
-                setBatch({...batch, endDate:e.target.value});
-              }}
-               />
+              <label htmlFor="startDate" className="child-date">
+                End Date
+              </label>
+              <input
+                type="date"
+                name="endDate"
+                id="endDate"
+                onChange={(e) => {
+                  setBatch({ ...batch, endDate: e.target.value });
+                }}
+              />
             </div>
           </div>
         </div>
@@ -126,7 +155,7 @@ function AddBatches() {
             cols="30"
             rows="10"
             onChange={(e) => {
-              setBatch({...batch, description:e.target.value});
+              setBatch({ ...batch, description: e.target.value });
             }}
           ></textarea>
         </div>
@@ -134,16 +163,9 @@ function AddBatches() {
           <button className="create_button" type="submit" onClick={handleForm}>
             Create
           </button>
-          <button type="button" className="cancel_button" onClick={()=> {
-             setBatch({batchName: "",
-             description: "",
-             endDate: "",
-             endTime: "",
-             startDate: "",
-             startTime: "",
-             trainer: ""})
-          }}
-            >Clear</button>
+          {/* <button type="reset" className="cancel_button">
+            Clear
+          </button> */}
         </div>
       </div>
     </div>

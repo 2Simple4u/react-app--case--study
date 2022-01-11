@@ -38,3 +38,16 @@ cursor: pointer;
     padding-left: 10%;
     width: 200px;
 }
+.link{
+text-decoration: none;
+color: white;
+font-size: 23px;
+}
+.link:hover{
+color: crimson;
+}
+
+.link > ul{
+    font-size: 50px;
+}
+

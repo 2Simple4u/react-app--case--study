@@ -8,7 +8,8 @@
 }
 .right_loginSide{
     width: 390px;
-    padding: 100px;
+    padding: 70px;
+    margin-top: 100px;
     margin: auto;
     background: #181818;
     border-radius: 10px;
